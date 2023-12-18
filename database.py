@@ -4,8 +4,8 @@ from sqlalchemy.orm import sessionmaker, relationship
 import os
 
 #DATABASE_URL = os.environ.get("DATABASE_URL")
-DATABASE_URL = "mysql+mysqlconnector://Top:!234Qwer@host.docker.internal/test"
-#DATABASE_URL = "mysql+mysqlconnector://Top:@mysql/test"
+#DATABASE_URL = "mysql+mysqlconnector://Top:!234Qwer@mysql/test"
+DATABASE_URL = "mysql+mysqlconnector://root:4eburashka@mysql/test"
 #DATABASE_URL = "mysql+mysqlconnector://Top:!234Qwer@host.docker.internal/test"
 
 engine = create_engine(DATABASE_URL)

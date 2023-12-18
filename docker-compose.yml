@@ -1,22 +1,24 @@
 version: '3'
 
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: 4eburashka
+      MYSQL_DATABASE: test
+    networks:
+      - my-network
     ports:
-      - "8000:80"
+      - "3306:3306"
+  fastapi:
+    build: .
+    ports:
+      - "8000:8000"
     depends_on:
       - mysql
+    networks:
+      - my-network
 
-  mysql:
-    build:
-      context: .
-      dockerfile: sql/Dockerfile
-    environment:
-      MYSQL_DATABASE: test
-      MYSQL_USER: Top
-      MYSQL_PASSWORD: !234Qwer
-      MYSQL_ROOT_PASSWORD: 1234!Qwerttyy
+networks:
+  my-network:
 
